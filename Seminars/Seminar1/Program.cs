@@ -14,7 +14,7 @@
 
 // Exercise 2: Get two numbers from user and check if the second number is the square of first number
 
-Console.WriteLine("Please, input first number:");
+/* Console.WriteLine("Please, input first number:");
 int num1 = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Please, input second number:");
@@ -24,4 +24,15 @@ if (num1 == num2 * num2){
     Console.WriteLine($"{num1} is a square of {num2}"); 
 } else {
     Console.WriteLine($"{num1} is NOT a square of {num2}"); 
-};
+}; */
+
+// Exercise 3: input 1 num and outputs all numbers from -num to +num
+
+Console.WriteLine("Please, input your number:");
+int num = Convert.ToInt32(Console.ReadLine());
+int count = num * -1;
+
+while (count <= num) {
+    Console.Write($"{count} ");
+    count = count + 1;
+}; 
