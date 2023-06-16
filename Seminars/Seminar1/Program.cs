@@ -42,7 +42,10 @@ while (count <= num) {
 Console.WriteLine("Please, input your 3 digit number:");
 int num = Convert.ToInt32(Console.ReadLine());
 
+if (99 > num < 1000) {
 int result = num % 10;
 Console.WriteLine(result);
-
+} else {
+    Console.WriteLine("Your number isn't a 3 digit number");
+}
 
