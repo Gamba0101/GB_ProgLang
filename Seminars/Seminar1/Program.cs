@@ -27,7 +27,7 @@ if (num1 == num2 * num2){
 }; */
 
 // Exercise 3: input 1 num and outputs all numbers from -num to +num
-
+/*
 Console.WriteLine("Please, input your number:");
 int num = Convert.ToInt32(Console.ReadLine());
 int count = num * -1;
@@ -35,4 +35,14 @@ int count = num * -1;
 while (count <= num) {
     Console.Write($"{count} ");
     count = count + 1;
-}; 
+}; */ 
+
+// Exercise 4: input a three digit number and output the last number of that number
+
+Console.WriteLine("Please, input your 3 digit number:");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int result = num % 10;
+Console.WriteLine(result);
+
+
