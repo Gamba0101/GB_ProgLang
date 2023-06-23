@@ -22,7 +22,24 @@ Console.WriteLine("Second digit in your number is - " + ten);
 Console.WriteLine("EXERCISE 13");
 
 Console.WriteLine("Please, input your number:");
+int num2 = Convert.ToInt32(Console.ReadLine());
 
+int ThirdDigit(int num2) {
+    int result = -1;
+    if (num2 >= 100) {
+        while (num2 > 999) {
+            num2 = num2 / 10;
+            }
+        result = num2 % 10;
+        }
+    return result; 
+    };
+
+if (ThirdDigit(num2) == -1) {
+    Console.WriteLine("There is no 3rd digit"); 
+    } else {
+    Console.WriteLine(ThirdDigit(num2));
+};
 
 /* Задача 15: 
 Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
