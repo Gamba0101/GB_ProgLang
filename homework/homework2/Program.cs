@@ -21,6 +21,7 @@ Console.WriteLine("Second digit in your number is - " + ten);
 
 Console.WriteLine("EXERCISE 13");
 
+Console.WriteLine("Please, input your number:");
 
 
 /* Задача 15: 
@@ -31,3 +32,11 @@ Console.WriteLine("EXERCISE 13");
 
 Console.WriteLine("EXERCISE 15");
 
+Console.WriteLine("Please, input a number from 1 to 7:");
+int num3 = Convert.ToInt32(Console.ReadLine());
+
+if (1 <= num3 && num3 < 6) {
+    Console.WriteLine("no, this is not the weekend");
+}else {
+    Console.WriteLine("yes, this is the weekend");
+};
