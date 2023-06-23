@@ -6,6 +6,12 @@
 
 Console.WriteLine("EXERCISE 10");
 
+Console.WriteLine("Please, input your 3 digit number:");
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+int ten = num1/10 % 10;
+
+Console.WriteLine("Second digit in your number is - " + ten);
 
 /* Задача 13: 
 Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
