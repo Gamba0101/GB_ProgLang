@@ -13,6 +13,7 @@
 }; 
 
 Console.WriteLine("Result is - " + Line()); */
+/* Session 1
 
 // Write a programm that gets an input of a number and deletes its second number
 int num = new Random().Next(100,1000);
@@ -42,4 +43,27 @@ if (num2 % num1 == 0){
     Console.WriteLine("Остаток = " + num2 % num1);
 }} else {
     Console.WriteLine("You can't divide by zero");
+};
+ */
+
+ // Session 2
+
+ //Напишите программу которая принимает на вход число и проверяет кратно ли оно одновременно 7 и 23
+
+
+
+ //Напишите программу которая принимает на вход два числа и проверяет является ли одно квадратом другого
+
+Console.WriteLine("Please, input first number:");
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Please, input second number:");
+int num2 = Convert.ToInt32(Console.ReadLine());
+
+if (num1 == num2 * num2){
+    Console.WriteLine($"{num1} is a square of {num2}"); 
+}if (num2 == num1 * num1){
+    Console.WriteLine($"{num2} is a square of {num1}"); 
+}else {
+    Console.WriteLine("There are no squares"); 
 };
