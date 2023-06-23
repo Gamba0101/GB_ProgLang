@@ -19,7 +19,7 @@ void PrintArray(int[] col){
 int IndexOf(int[] collection, int find) {
     int count = collection.Length;
     int index = 0;
-    int posit = 0;
+    int posit = -1;
     while (index < count){
         if (collection[index] == find){
             posit = index;
