@@ -44,14 +44,29 @@ A (7,-5, 0); B (1,-1,9) -> 11.53 */
 Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 21");
 
+Console.WriteLine("Input your X coord of START coord");
+int x1 = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Input your X coord (they cannot equal 0)");
-int xCoord = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input your Y coord of START coord");
+int y1 = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Input your Y coord (they cannot equal 0)");
-int yCoord = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input your X coord of END coord");
+int x2 = Convert.ToInt32(Console.ReadLine());
 
+Console.WriteLine("Input your Y coord coord of END coord");
+int y2 = Convert.ToInt32(Console.ReadLine());
 
+//                     __________________________________
+// double distance = \/(x2-x1)*(x2-x1) + (y2-y1)(y2 - y1)
+// Math.Sqrt(); - find square root
+
+double Distance (int xA, int xB, int yA, int yB){
+    double step1 = Math.Sqrt((xB - xA)*(xB-xA) + (yB - yA)*(yB - yA));
+    step1 = Math.Round(step1, 3);
+    return step1;
+};
+
+Console.WriteLine($"The distance between A({x1};{y1}) and B({x2};{y2}) is {Distance(x1, x2, y1, y2)}");
 
 /* Задача 23
 Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
