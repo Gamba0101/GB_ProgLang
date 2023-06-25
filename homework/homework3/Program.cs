@@ -80,6 +80,31 @@ Console.WriteLine("EXERCISE 15");
 Console.WriteLine("Please, input your number:");
 int num3 = Convert.ToInt32(Console.ReadLine());
 
+void FindCube(int arg) {
+    int start = 1;
+    while (start <= arg) {
+        int result = start * start * start;
+        Console.Write($"{result:f0}, ");
+        start++;
+    }
+    Console.WriteLine("\b\b");
+};
+void FindNegCube(int arg) {
+    int start = 1;
+    while (start >= arg) {
+        int result = start * start * start;
+        Console.Write($"{result:f0}, ");
+        start--;
+    }
+    Console.WriteLine("\b\b");
+};
+if (num3 > 0) {
+ FindCube(num3); 
+} else {
+    FindNegCube(num3);
+}
+
+/*
 int i = 1;
 int temp = 0;
 
@@ -90,15 +115,4 @@ while (i <= num3) {
     Console.Write(" " + temp);
     i++;
 }
-
-/* int FindCube (int num3) {
-    int start = 1;
-    int result = -1;
-    while (start <= num3) {
-        result = start * start * start;
-        return result;
-        start = start + 1;
-    }
-    return result;
-} */
- 
+*/
