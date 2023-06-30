@@ -2,7 +2,7 @@
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, 
 // которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
-/*
+
 Console.WriteLine("EXERCISE 34");
 
 int size = new Random().Next(3,11);
@@ -68,7 +68,6 @@ int[] array2 = CreateArray2(size2);
 PrintArray(array2);
 Console.WriteLine(" ");
 Console.WriteLine($"The sum of numbers on odd spots is {CountOddS(array2)}");
-*/
 
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
@@ -95,17 +94,45 @@ void PrintDoubleArray (double[] print_ar) {
     }
 }
 
-double FindMax(double[] array) {
-    double max = 0; 
-    for (int i = 0; i < size; i++) {
-        if (max <= array[i]) {
-            max = array[i];
+double FindMax(double[] temp_array) {
+    double max = 0;
+    int i = 0;
+    while (i <= size3 - 1) {
+        if (max <= temp_array[i]) {
+            max = temp_array[i];
             i++;
-        } else max = max;
+        } else  i++;
     }
     return max;
 }
 
+double FindMin(double[] temp_array) {
+    int i = 0;
+    double min = FindMax(temp_array); 
+    while (i <= size3 - 1) {
+            if (min >= temp_array[i]) {
+                min = temp_array[i];
+                i++;
+            } else  i++;
+        }
+    return min;
+}
+
+double Difference(double arg1, double arg2) {
+    double dif = 0;
+    if (arg1 > arg2) dif = arg1 - arg2;
+    else  dif = arg2 - arg1;
+    // else { 
+    //     dif = 0;
+    //     Console.WriteLine("Your max and min values are the same.");
+    // }
+    dif = Math.Round(dif, 2);
+    return dif;
+}
+
 double[] array3 = CreateArray3(size3);
 PrintDoubleArray(array3);
-Console.WriteLine(FindMax(array3));
+Console.WriteLine("");
+Console.WriteLine($"The max number in your array is: {FindMax(array3)}");
+Console.WriteLine($"The min number in your array is: {FindMin(array3)}");
+Console.WriteLine($"The difference between them is: {Difference(FindMax(array3), FindMin(array3))}");
