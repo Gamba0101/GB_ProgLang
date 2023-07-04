@@ -1,4 +1,6 @@
-﻿int[] CreateNewArray (int size, int minV, int maxV) {
+﻿// Развернуть массив
+/*
+int[] CreateNewArray (int size, int minV, int maxV) {
     int[] newArray = new int[size];
     for (int i = 0; i < size; i++) {
         newArray[i] = new Random().Next(minV, maxV + 1);
@@ -33,5 +35,8 @@ Console.Write("Your array is: ");
 int[] CreatedArray = CreateNewArray(array_size, min, max);
 ShowArray(CreatedArray);
 Console.Write("Your array reversed is: ");
-int[] ReversedArray = ReverseArray(CreatedArray);
-ShowArray(ReversedArray);
+ShowArray(ReverseArray(CreatedArray));
+*/
+
+// перевести число из двоичной системы в десятичную (или наоборот)
+
