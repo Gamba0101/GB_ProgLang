@@ -4,6 +4,41 @@
 
 Console.WriteLine("EXERCISE 41");
 
+Console.WriteLine("Please input how many numbers you want inputted: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+int[] CreateArray (int size){
+    int[] temp_ar = new int[size];
+    for (int i = 0; i < size; i++) {
+        temp_ar[i] = new Random().Next(-1000,1000);
+    }
+    return temp_ar;
+}
+
+void PrintArray (int[] print_ar) {
+    Console.Write("Your array is: ");
+    for (int i = 0; i < print_ar.Length; i++) {
+        Console.Write(print_ar[i] + " ");
+    }
+}
+
+int MoreThanZero (int[] array) {
+    int count = 0;
+    for (int i = 0; i < array.Length; i++) {
+        if (array[i] > 0) {
+        count += 1;
+        }
+    }
+    return count;
+}
+
+int[] array = CreateArray(size);
+PrintArray(array);
+Console.WriteLine(" ");
+Console.WriteLine($"Your array has {MoreThanZero(array)} numbers bigger than 0.");
+
+// Solving using Split and Parse C# functions
+/*
 Console.Write("Put in your numbers (seperate them with a space): ");
 int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 int count = 0;
@@ -12,8 +47,9 @@ for (int i = 0; i < arr.Length; i++)
 {
     if (arr[i] > 0)    count++;
 }
- 
+
 Console.WriteLine($"{count} numbers you inputted are > 0");
+ */
 
 
 
