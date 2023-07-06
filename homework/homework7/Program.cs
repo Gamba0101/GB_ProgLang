@@ -7,6 +7,35 @@
 
 Console.WriteLine("EXERCISE 47");
 
+double[,] Create2DArray () {
+    int rows = new Random().Next(3,11);
+    int collumns = new Random().Next(3,11);
+    Console.WriteLine($"m = {rows}, n = {collumns}.");
+
+    double[,] new2DArray = new double [rows, collumns];
+
+    for (int i = 0; i < rows; i++) {
+        for(int j = 0; j < collumns; j++) {
+            new2DArray[i,j] = new Random().Next(-10, 11) + new Random().NextDouble();
+            new2DArray[i,j] = Math.Round(new2DArray[i,j], 2);
+        }
+    }
+    return new2DArray;
+}
+
+void Print2DArray (double[,] ar2D) {
+    for (int i = 0; i < ar2D.GetLength(0); i++) {
+        for(int j = 0; j < ar2D.GetLength(1); j++) {
+            Console.Write(ar2D[i,j] + "  ") ;
+        }
+        Console.WriteLine(); 
+    }
+    Console.WriteLine();
+}
+
+double[,] array1 = Create2DArray();
+Print2DArray(array1);
+
 // Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
 // и возвращает значение этого элемента или же указание, что такого элемента нет.Например, задан массив:
 // 1 4 7 2
