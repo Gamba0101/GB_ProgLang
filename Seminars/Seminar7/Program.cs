@@ -1,7 +1,7 @@
 ﻿// задайте двумерный массив размером mxn, заполненый случайными числамию
 
 // int[,] array = new(x,y); двумерный массив
-
+/*
 int[,] Create2DArray () {
     Console.WriteLine("Enter count of rows: ");
     int rows = Convert.ToInt32(Console.ReadLine());
@@ -23,6 +23,7 @@ int[,] Create2DArray () {
     return new2DArray;
 
 }
+*/
 
 void Print2DArray (int[,] ar2D) {
     for (int i = 0; i < ar2D.GetLength(0); i++) {
@@ -34,5 +35,23 @@ void Print2DArray (int[,] ar2D) {
     Console.WriteLine(); // jump output to next line
 }
 
-int[,] new2DArray = Create2DArray();
+// Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле А = m+n
+
+int[,] FillArray (){
+    Console.WriteLine("Enter count of rows: ");
+    int mRows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter count of collums: ");
+    int nCollums = Convert.ToInt32(Console.ReadLine());
+
+    int[,] newArray = new int [mRows, nCollums];
+
+    for (int i = 0; i < mRows; i++) {
+        for(int j = 0; j < nCollums; j++) {
+            newArray[i,j] = i + j;
+        }
+    }
+    return newArray;
+}
+
+int[,] new2DArray = FillArray();
 Print2DArray(new2DArray);
