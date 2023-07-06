@@ -99,3 +99,17 @@ FindAmount(array2, x, y);
 Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 52");
 
+int[,] array3 = CreateInt2DArray();
+PrintInt2DArray(array3);
+
+for (int j = 0; j < array3.GetLength(1); j++)
+{
+    double avarage = 0;
+    for (int i = 0; i < array3.GetLength(0); i++)
+    {
+        avarage = (avarage + array3[i, j]);
+    }
+    avarage = avarage / array3.GetLength(0);
+    Console.Write(avarage + "; ");
+}
+Console.WriteLine();
