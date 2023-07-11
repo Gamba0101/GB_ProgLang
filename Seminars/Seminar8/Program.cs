@@ -52,7 +52,7 @@ ShowArray(newArray);
 // Задача 2. Задайте двумерный массив. Напишите программу, которая заменяет строки на стобцы.
 // В случае если это невозможно, программа должна вывести сообщение пользавателю.
 
- int[,] ChangeRowToCollumn (int[,] arrayToChange) {
+/* int[,] ChangeRowToCollumn (int[,] arrayToChange) {
     int[,] NewArray = new int[arrayToChange.GetLength(1), arrayToChange.GetLength(0)];
     if (arrayToChange.GetLength(0) == arrayToChange.GetLength(1)) {
         for (int i = 0; i < arrayToChange.GetLength(0); i++) {
@@ -65,11 +65,31 @@ ShowArray(newArray);
         Console.WriteLine("Error: Impossible value.");
         return arrayToChange;
     }
-}
-
-Console.WriteLine("Your changed array: ");
-ShowArray(ChangeRowToCollumn(newArray));
+} */
 
 // Задача 3. Задайте двумерный массив. Напишите программу, которая обнулит строку и столбец
 // на перечении которых находится первый наименьший элемент.
 
+int[,] NulledMin (int[,] arrayToChange, int min) {
+    int min_row = 0;
+    int min_col = 0;
+    for (int i = 0; i < arrayToChange.GetLength(0); i++) {
+            for (int j = 0; j < arrayToChange.GetLength(1); j++) {
+                if (arrayToChange[i, j] == min) {
+                    min_row = i;
+                    min_col = j;
+                    break;
+                }
+            } break;
+    } 
+    for (int i = 0; i < arrayToChange.GetLength(0); i++) {
+        arrayToChange[i, min_col] = 0;
+    }       
+    for (int j = 0; j < arrayToChange.GetLength(1); j++) {
+        arrayToChange[min_row, j] = 0;
+    }
+    return arrayToChange;
+}
+
+Console.WriteLine("Your changed array: ");
+ShowArray(NulledMin(newArray, user_min));
