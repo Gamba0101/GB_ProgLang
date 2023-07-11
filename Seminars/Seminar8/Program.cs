@@ -16,7 +16,7 @@ void ShowArray (int[,] printedArray) {
     Console.WriteLine();
 }
 
-int[,] ChangeRows (int[,] arrayToChange, int row1, int row2) {
+/* int[,] ChangeRows (int[,] arrayToChange, int row1, int row2) {
     if (row1 >= 0 && row1 < arrayToChange.GetLength(0) &&
     row1 != row2 && 
     row2 >= 0 && row2 < arrayToChange.GetLength(0)) {
@@ -27,7 +27,7 @@ int[,] ChangeRows (int[,] arrayToChange, int row1, int row2) {
         }
     } else Console.WriteLine("Error: Impossible value.");
     return arrayToChange;
-}
+} */
 
 Console.WriteLine("Input count of rows: ");
 int user_rows = Convert.ToInt32(Console.ReadLine());
@@ -41,10 +41,35 @@ int user_max = Convert.ToInt32(Console.ReadLine());
 int[,] newArray = Create2dArray(user_rows, user_cols, user_min, user_max);
 ShowArray(newArray);
 
-Console.Write($"Input number of first row to swap from 0 to {user_rows-1}: ");
-int user_first_row = Convert.ToInt32(Console.ReadLine());
-Console.Write($"Input number of second row to swap from 0 to {user_rows-1}: ");
-int user_second_row = Convert.ToInt32(Console.ReadLine());
+// Console.Write($"Input number of first row to swap from 0 to {user_rows-1}: ");
+// int user_first_row = Convert.ToInt32(Console.ReadLine());
+// Console.Write($"Input number of second row to swap from 0 to {user_rows-1}: ");
+// int user_second_row = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine("Your changed array: ");
+// ShowArray(ChangeRows(newArray, user_first_row, user_second_row));
+
+// Задача 2. Задайте двумерный массив. Напишите программу, которая заменяет строки на стобцы.
+// В случае если это невозможно, программа должна вывести сообщение пользавателю.
+
+ int[,] ChangeRowToCollumn (int[,] arrayToChange) {
+    int[,] NewArray = new int[arrayToChange.GetLength(1), arrayToChange.GetLength(0)];
+    if (arrayToChange.GetLength(0) == arrayToChange.GetLength(1)) {
+        for (int i = 0; i < arrayToChange.GetLength(0); i++) {
+            for (int j = 0; j < arrayToChange.GetLength(1); j++) {
+                NewArray[j, i] = arrayToChange[i, j];
+            } 
+        }
+    return NewArray;
+    } else { 
+        Console.WriteLine("Error: Impossible value.");
+        return arrayToChange;
+    }
+}
 
 Console.WriteLine("Your changed array: ");
-ShowArray(ChangeRows(newArray, user_first_row, user_second_row));
+ShowArray(ChangeRowToCollumn(newArray));
+
+// Задача 3. Задайте двумерный массив. Напишите программу, которая обнулит строку и столбец
+// на перечении которых находится первый наименьший элемент.
+
