@@ -13,6 +13,7 @@ void Print2DArray (int[,] array) {
         }
         Console.WriteLine(); 
     }
+    Console.WriteLine(" ");
 }
 
 /* Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
@@ -103,10 +104,12 @@ void FindMinRowSum (int[,] array, int max) {
 }
 
 if (error != 1) {
+    Console.WriteLine(" ");
     int[,] array2 = Create2DArray(rows2, cols2);
     Print2DArray(array2);
     Console.WriteLine("Your MIN row sum is: ");
     FindMinRowSum(array2, FindMaxRowSum(array2));
+    Console.WriteLine(" ");
 } else {
     Console.WriteLine("Error: impossible input.");
 }
@@ -118,6 +121,9 @@ if (error != 1) {
 18 20
 15 18 */
 
+// multiplication goes: row from ar1 * col from ar2 
+// ! ar1 row count == ar2 col count
+
 Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 58");
 
@@ -127,8 +133,10 @@ Console.WriteLine("Input count of collumns: ");
 int cols3_1 = Convert.ToInt32(Console.ReadLine());
 
 int[,] array3_1 = Create2DArray(rows3_1, cols3_1);
+Console.WriteLine(" ");
 Console.WriteLine("Your array 1 is:");
 Print2DArray(array3_1);
+Console.WriteLine(" ");
 
 Console.WriteLine("Input count of rows: ");
 int rows3_2 = Convert.ToInt32(Console.ReadLine());
@@ -136,8 +144,29 @@ Console.WriteLine("Input count of collumns: ");
 int cols3_2 = Convert.ToInt32(Console.ReadLine());
 
 int[,] array3_2 = Create2DArray(rows3_2, cols3_2);
+Console.WriteLine(" ");
 Console.WriteLine("Your array 2 is:");
 Print2DArray(array3_2);
+
+int[,] ArrayMultiply (int[,] array1, int[,] array2) {
+    int[,] result = new int[array1.GetLength(0), array2.GetLength(1)];
+    for (int i = 0; i < array1.GetLength(0); i++) {
+        for (int j = 0; j < array2.GetLength(1); j++)  {
+            int sum = 0;
+            for (int k = 0; k < array1.GetLength(1); k++) {
+                sum += array1[i,k] * array2[k,j]; }
+            result[i,j] = sum;
+        }
+    }
+    return result;
+}
+
+if (rows3_1 != cols3_2) Console.WriteLine("Error: impossible input.");
+else {
+    Console.WriteLine(" ");
+    Console.WriteLine("Array 1 multiplied by array 2 = ");
+    Print2DArray(ArrayMultiply(array3_1, array3_2));
+}
 
 /* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2
