@@ -1,4 +1,4 @@
-﻿int [,] Create2dArray (int row, int collumn) {
+﻿int [,] Create2DArray (int row, int collumn) {
     int[,] createdArray = new int[row,collumn];
     for (int i =0; i < row; i++) 
         for (int j = 0; j < collumn; j++) 
@@ -35,6 +35,24 @@ int cols1 = Convert.ToInt32(Console.ReadLine());
 int[,] array1 = Create2DArray(rows1, cols1);
 Print2DArray(array1);
 
+void OrderRows(int[,] array) {
+    for (int i = 0; i < array.GetLength(0); i++)  {
+        for (int j = 0; j < array.GetLength(1); j++)  {
+            for (int k = 0; k < array.GetLength(1) - 1; k++)  {
+                if (array[i, k] < array[i, k + 1])  {
+                    int temp = array[i, k + 1];
+                    array[i, k + 1] = array[i, k];
+                    array[i, k] = temp;
+                }
+            }
+        }
+    }
+}
+
+Console.WriteLine("Your ordered array: ");
+OrderRows(array1);
+Print2DArray(array1);
+
 /* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 Например, задан массив:
 1 4 7 2
@@ -48,7 +66,7 @@ Console.WriteLine("EXERCISE 56");
 
 Console.WriteLine("Input count of rows: ");
 int rows2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input count of collumns: ");
+Console.WriteLine($"Input count of collumns that DOESN'T = {rows2}: ");
 int cols2 = Convert.ToInt32(Console.ReadLine());
 
 int[,] array2 = Create2DArray(rows2, cols2);
@@ -66,12 +84,22 @@ Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 58");
 
 Console.WriteLine("Input count of rows: ");
-int rows3 = Convert.ToInt32(Console.ReadLine());
+int rows3_1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input count of collumns: ");
-int cols3 = Convert.ToInt32(Console.ReadLine());
+int cols3_1 = Convert.ToInt32(Console.ReadLine());
 
-int[,] array3 = Create2DArray(rows3, cols3);
-Print2DArray(array3);
+int[,] array3_1 = Create2DArray(rows3_1, cols3_1);
+Console.WriteLine("Your array 1 is:");
+Print2DArray(array3_1);
+
+Console.WriteLine("Input count of rows: ");
+int rows3_2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input count of collumns: ");
+int cols3_2 = Convert.ToInt32(Console.ReadLine());
+
+int[,] array3_2 = Create2DArray(rows3_2, cols3_2);
+Console.WriteLine("Your array 2 is:");
+Print2DArray(array3_2);
 
 /* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2
@@ -87,9 +115,8 @@ Console.WriteLine("Input count of rows: ");
 int rows4 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input count of collumns: ");
 int cols4 = Convert.ToInt32(Console.ReadLine());
-
-int[,] array4 = Create2DArray(rows4, cols4);
-Print2DArray(array4);
+Console.WriteLine("Input count of 3D rows: ");
+int vol4 = Convert.ToInt32(Console.ReadLine());
 
 /* Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 Например, на выходе получается вот такой массив:
