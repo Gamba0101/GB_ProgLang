@@ -1,4 +1,5 @@
-﻿int [,] Create2DArray (int row, int collumn) {
+﻿
+int [,] Create2DArray (int row, int collumn) {
     int[,] createdArray = new int[row,collumn];
     for (int i =0; i < row; i++) 
         for (int j = 0; j < collumn; j++) 
@@ -71,7 +72,6 @@ Console.WriteLine($"Input count of collumns that DOESN'T = {rows2}: ");
 int cols2 = Convert.ToInt32(Console.ReadLine());
 
 int error = 0;
-int minSum = 0;
 
 if (rows2 == cols2) error = 1;
 
@@ -121,9 +121,6 @@ if (error != 1) {
 18 20
 15 18 */
 
-// multiplication goes: row from ar1 * col from ar2 
-// ! ar1 row count == ar2 col count
-
 Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 58");
 
@@ -168,7 +165,8 @@ else {
     Print2DArray(ArrayMultiply(array3_1, array3_2));
 }
 
-/* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+/* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет 
+построчно выводить массив, добавляя индексы каждого элемента.
 Массив размером 2 x 2 x 2
 66(0,0,0) 25(0,1,0)
 34(1,0,0) 41(1,1,0)
@@ -185,6 +183,30 @@ int cols4 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input count of 3D rows: ");
 int vol4 = Convert.ToInt32(Console.ReadLine());
 
+int [,,] Create3DArray (int row, int collumn, int volume) {
+    int[,,] createdArray = new int[row,collumn,volume];
+    for (int i =0; i < row; i++) 
+        for (int j = 0; j < collumn; j++)
+            for (int l = 0; l < volume; l++) 
+                createdArray[i,j,l] = new Random().Next(10, 100);
+    return createdArray;
+}
+
+void Print3DArray (int[,,] array) {
+    for (int i = 0; i < array.GetLength(0); i++) {
+        for(int j = 0; j < array.GetLength(1); j++) {
+            for(int l = 0; l < array.GetLength(2); l++) {
+                Console.Write($"{array[i,j,l]} ({i},{j},{l}) ");
+            }
+        }
+        Console.WriteLine(); 
+    }
+    Console.WriteLine(" ");
+}
+
+int[,,] array4 = Create3DArray(rows4, cols4, vol4);
+Print3DArray(array4);
+
 /* Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 Например, на выходе получается вот такой массив:
 01 02 03 04
@@ -196,5 +218,40 @@ int vol4 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine(" ");
 Console.WriteLine("EXERCISE 62");
 
-int[,] array5 = Create2DArray(4, 4);
+int[,] CreateSpiralArray(int n)  {
+        int[,] array = new int[n, n];
+        int direction = 0;  // 0: right, 1: down, 2: left, 3: up
+        int row = 0, col = 0;
+        int num = 1;
+
+        for (int i = 1; i <= n * n; i++) {
+            array[row, col] = num;
+            num++;
+            if (direction == 0) {
+                if (col + 1 >= n || array[row, col + 1] != 0) {
+                    direction = 1;  // change direction to down
+                    row++;
+                } else col++;
+            } else if (direction == 1) {
+                if (row + 1 >= n || array[row + 1, col] != 0) {
+                    direction = 2;  // change direction to left
+                    col--;
+                }  else    row++;
+            } else if (direction == 2)  {
+                if (col - 1 < 0 || array[row, col - 1] != 0) {
+                    direction = 3;  // change direction to up
+                    row--;
+                } else    col--;
+            } else if (direction == 3)  {
+                if (row - 1 < 0 || array[row - 1, col] != 0) {
+                    direction = 0;  // change direction to right
+                    col++;
+                } else    row--;
+            }
+        }
+        return array;
+    }
+
+
+int[,] array5 = CreateSpiralArray(4);
 Print2DArray(array5);
