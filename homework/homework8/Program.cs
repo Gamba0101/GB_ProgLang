@@ -69,9 +69,47 @@ int rows2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine($"Input count of collumns that DOESN'T = {rows2}: ");
 int cols2 = Convert.ToInt32(Console.ReadLine());
 
-int[,] array2 = Create2DArray(rows2, cols2);
-Print2DArray(array2);
+int error = 0;
+int minSum = 0;
 
+if (rows2 == cols2) error = 1;
+
+int FindMaxRowSum (int[,] array) {
+    int i = 0;
+    int temp = 0;
+    int max = 0;
+    while (i < array.GetLength(0)) { 
+        for (int j = 0; j < array.GetLength(1); j++) {
+        temp = array[i,j] + temp;
+        }
+        if (temp > max) max = temp;
+        i++;
+    }
+    return max;
+}
+
+void FindMinRowSum (int[,] array, int max) {
+    int i = 0;
+    int temp = 0;
+    int min = max;
+    while (i < array.GetLength(0)) { 
+        for (int j = 0; j < array.GetLength(1); j++) {
+            temp = array[i,j] + temp;
+        }
+        if (temp < min) min = temp;
+        i++;
+    }
+    Console.Write(min);
+}
+
+if (error != 1) {
+    int[,] array2 = Create2DArray(rows2, cols2);
+    Print2DArray(array2);
+    Console.WriteLine("Your MIN row sum is: ");
+    FindMinRowSum(array2, FindMaxRowSum(array2));
+} else {
+    Console.WriteLine("Error: impossible input.");
+}
 /* Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 Например, даны 2 матрицы:
 2 4 | 3 4
