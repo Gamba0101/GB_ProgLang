@@ -19,18 +19,27 @@ Console.WriteLine(" ");
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
+Console.WriteLine(" ");
 Console.WriteLine("Задача 66");
 
-int CountRange (int arg1, int arg2) {
-    int sum = 0;
-    sum += Math.Min(arg1,arg2);
-    if (Math.Max(arg1,arg2) != Math.Min(arg1,arg2)) CountRange(Math.Min(arg1, arg2)+1, Math.Max(arg1,arg2));
-    return sum;
-}
+static int CountRange(int a, int b) {
+        if (a == b) {
+            return 1; 
+        } else if (a > b) {
+            return b + CountRange(a, b + 1); 
+        } else {
+            return a + CountRange(a + 1, b);
+        }
+    }
 
-Console.WriteLine(CountRange(10,20));
-Console.WriteLine();
+Console.WriteLine("Enter your first num: ");
+int num2_1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter your second num: ");
+int num2_2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(" ");
+Console.WriteLine($"The sum of all the numbers between {num2_1} and {num2_2} is {CountRange(num2_1, num2_2)}");
 
 // Задача 68*: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 // m = 2, n = 3 -> A(m,n) = 9
 // m = 3, n = 2 -> A(m,n) = 29
+
